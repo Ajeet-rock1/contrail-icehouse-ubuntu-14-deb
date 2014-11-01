@@ -1,0 +1,8 @@
+9c06ee8c3d370008703a8efd58379e59  opt/contrail/contrail_packages/VERSION
+45b8b977ceb5ea3b45f260f3e0bf1aae  opt/contrail/contrail_packages/contrail_debs.tgz
+1214827f658ae9d994eccff687f0e4e2  opt/contrail/contrail_packages/preferences
+a08446d230373c8d2b28c68e88ef77f7  opt/contrail/contrail_packages/setup.sh
+b872d74c7e05529ce4d0d9f89e231d5c  opt/contrail/contrail_packages/sources.list
+9ad4fc7db58f46133258d6f0c15a7118  opt/contrail/puppet/contrail-puppet-manifest.tgz
+ce3b9860c0a0bef15768c6a44700343f  usr/share/doc/contrail-install-packages/changelog.Debian.gz
+fbfafb51151ae25ee23d0ec5eea9052b  usr/share/doc/contrail-install-packages/copyright

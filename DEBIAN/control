@@ -1,0 +1,8 @@
+Package: contrail-install-packages
+Version: 1.20-63~icehouse
+Architecture: all
+Maintainer: amoghe <amoghe@juniper.net>
+Installed-Size: 447099
+Section: contrail-install-packages
+Priority: extra
+Description: Contrail Installer Packages - Container of debian packages

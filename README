@@ -1,0 +1,76 @@
+# Steps to build package
+========================
+
+* git clone https://github.com/viggates/contrail-icehouse-ubuntu-14-deb.git
+* cd contrail-icehouse-ubuntu-14-deb/opt/contrail/contrail_packages/
+* wget "https://www.dropbox.com/s/e6s4wfn1wgg30u1/contrail-install-packages_1.20-63~icehouse_all.deb?dl=0"
+* cd ../../../
+* dpkg-deb -b . /tmp/contrail-install-packages_1.20-63~icehouse_all.deb
+
+
+# Steps to install/configure opencontrail-openstack-icehouse on ubuntu 14.04
+============================================================================
+
+* cd /opt/contrail/contrail_packages
+* sudo -i
+* echo "http_proxy=x.x.x.x:yyyy" >> /etc/environment
+* echo "https_proxy=x.x.x.x:yyyy" >> /etc/environment
+* echo "no_proxy=127.0.0.1,localhost,z.z.z.z >> /etc/environment
+* source /etc/environment
+* ./setup.sh
+* cd /opt/contrail/utils/
+* cp fabfile/testbeds/testbed_singlebox_example.py fabfile/testbeds/testbed.py
+* vim fabfile/testbeds/testbed.py
+* Replace 
+	host1= 'root@1.1.1.1'
+  With
+	host1 = 'root@<your-ip>' 
+* Replace
+	host_build = 'root@1.1.1.1'
+  With
+	host_build = 'root@<your-ip>'
+* Replace
+	env.openstack_admin_password = 'secret123'
+  With
+	env.openstack_admin_password = '<your host pwd>'
+* Replace
+  	env.hostnames = {
+    	    'all': ['a0s1']
+  	}
+  With
+  	env.hostnames = {
+    	    'all': ['<your host name>']
+  	}
+* Replace
+	env.password = 'secret'
+  	env.passwords = {
+    	    host1: 'secret',
+
+	    host_build: 'secret',
+	}
+  With
+  	env.password = '<your root password>'
+	env.passwords = {
+	    host1: '<your root password>',
+
+	    host_build: '<your root password>',
+	}
+* Replace
+	env.ostypes = {
+	    host1:'centos',
+	}
+  With
+  	env.ostypes = {
+   	    host1:'ubuntu',
+  	}
+* Create passwordless ssh for root
+  ssh-keygen -t rsa -P ""
+  cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys
+  ssh root@<your ip>
+  Type yes
+  exit
+
+* apt-get install linux-headers-3.13.0-35-generic
+* fab -c fabric install_contrail
+* apt-get install contrail-vrouter-dkms
+* fab setup_all
