@@ -4,10 +4,18 @@
 * sudo -i
 * git clone https://github.com/viggates/contrail-icehouse-ubuntu-14-deb.git
 * cd contrail-icehouse-ubuntu-14-deb/opt/contrail/contrail_packages/
-* wget "https://www.dropbox.com/s/e6s4wfn1wgg30u1/contrail-install-packages_1.20-63~icehouse_all.deb?dl=0"
+* wget "https://www.dropbox.com/s/5azfn0re5lnxk55/contrail_debs.tgz?dl=0" -O contrail_debs.tgz
 * cd ../../../
 * dpkg-deb -b . /tmp/contrail-install-packages_1.20-63~icehouse_all.deb
 * dpkg -i /tmp/contrail-install-packages_1.20-63~icehouse_all.deb
+
+(or)
+
+* sudo -i
+* cd /tmp/
+* wget "https://www.dropbox.com/s/e6s4wfn1wgg30u1/contrail-install-packages_1.20-63~icehouse_all.deb?dl=0" -O contrail-install-packages_1.20-63~icehouse_all.deb
+* dpkg -i /tmp/contrail-install-packages_1.20-63~icehouse_all.deb
+
 
 
 # Steps to install/configure opencontrail-openstack-icehouse on ubuntu 14.04
